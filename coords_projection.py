@@ -113,11 +113,9 @@ def galactocentric_to_sky(
     """
 
     (x0, y0) = centre
-    pa0 = pa / 180. * π
-    inc0 = incli * π/180
 
-    xsky = - rg / asc * (cos(theta) * sin(pa0)) + sin(theta) * cos(pa0) * cos(inc0) + x0
-    ysky = rg / asc * (cos(theta) * cos(pa0) - sin(theta) * sin(pa0) * cos(inc0)) + y0
+    xsky = - rg / asc * (cos(theta) * sin(pa / 180. * π)) + sin(theta) * cos(pa * π / 180.) * cos(incli * π / 180) + x0
+    ysky = rg / asc * (cos(theta) * cos(pa / 180. * π) - sin(theta) * sin(pa * π / 180) * cos(incli * π / 180.)) + y0
 
     return Projected(xsky, ysky)
 
