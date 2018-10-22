@@ -82,7 +82,7 @@ def radius1(
         xg[uu] = np.nan
         psig[uu] = np.nan
 
-    return Deprojected(rg, xg, yg, psig)
+    return Deprojected(rg.T, xg, yg, psig)
 
 
 # Legacy compatibility
@@ -144,7 +144,7 @@ if __name__ == '__main__':
     print('Testing galactocentric_to_sky...')
     result = galactocentric_to_sky(
         rg=10.,  # galactocentric radius in arcsec
-        theta=π,  # azimuthal angle in rad
+        theta=π,  # angle from the major axis
         incli=60.,  # in degrees
         pa=30.,  # in degres, conuterclockswise from Y sky (North) axis
         centre=(128., 128) , # coordinates of the disk centre on the sky
